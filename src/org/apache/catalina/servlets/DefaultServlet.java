@@ -766,7 +766,6 @@ public class DefaultServlet
      * Get the ETag associated with a file.
      *
      * @param resourceInfo File object
-     * @param strong True if we want a strong ETag, in which case a checksum
      * of the file has to be calculated
      */
     protected String getETag(ResourceInfo resourceInfo) {
@@ -1450,12 +1449,12 @@ public class DefaultServlet
 
             // Render the directory entries within this directory
             DirContext directory = resourceInfo.directory;
-            NamingEnumeration enum =
+            NamingEnumeration enums =
                 resourceInfo.resources.list(resourceInfo.path);
             boolean shade = false;
-            while (enum.hasMoreElements()) {
+            while (enums.hasMoreElements()) {
 
-                NameClassPair ncPair = (NameClassPair) enum.nextElement();
+                NameClassPair ncPair = (NameClassPair) enums.nextElement();
                 String resourceName = ncPair.getName();
                 ResourceInfo childResourceInfo =
                     new ResourceInfo(resourceName, directory);
