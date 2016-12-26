@@ -16,7 +16,7 @@ import java.io.File;
 public class Response {
 
   private static final int BUFFER_SIZE = 1024;
-  Request request;
+  private Request request;
   OutputStream output;
 
   public Response(OutputStream output) {
